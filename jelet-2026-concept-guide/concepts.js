@@ -934,6 +934,129 @@ const concepts = [
       solution: "Step 1: Power $P = T \\cdot \\omega = 2\\pi N T$. For constant power, $T_1 N_1 = T_2 N_2$.\n\nStep 2: Given $T_1 = 120\\text{ Nm}$, $N_1 = 20\\text{ rps}$ and $N_2 = 30\\text{ rps}$.\n\nStep 3: $120 \\times 20 = T_2 \\times 30$.\n\nStep 4: $T_2 = \\frac{2400}{30} = 80\\text{ Nm}$."
     },
     proTip: "Shunt motors are constant-speed motors. Series motors are variable-speed motors. Never start a DC series motor on no-load, as the low armature current makes flux $\\Phi \\to 0$, causing speed $N \\propto 1/\\Phi$ to run away to dangerous values!"
+  },
+  {
+    id: 41,
+    subject: "mathematics",
+    title: "Internal and External Section Formula",
+    youtubeQuery: "section+formula+internal+and+external+division+coordinate+geometry",
+    desc: "Finding coordinates of a point that divides the line segment joining two given points in a specified ratio $m:n$ internally or externally.",
+    formulas: [
+      "Internal Division: $P(x, y) = \\left( \\frac{mx_2 + nx_1}{m+n}, \\frac{my_2 + ny_1}{m+n} \\right)$",
+      "External Division: $P(x, y) = \\left( \\frac{mx_2 - nx_1}{m-n}, \\frac{my_2 - ny_1}{m-n} \\right)$",
+      "Midpoint: $M = \\left( \\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2} \\right)$"
+    ],
+    steps: [
+      "Identify the coordinates of the endpoints $(x_1, y_1)$ and $(x_2, y_2)$.",
+      "Determine the division ratio $m:n$ and whether it is internal or external.",
+      "Substitute coordinates and ratios into the appropriate division formula.",
+      "Simplify the arithmetic expressions to obtain the final coordinate pair $(x, y)$."
+    ],
+    example: {
+      text: "Find the coordinates of the point that divides the line segment joining $A(1, -2)$ and $B(4, 7)$ externally in the ratio $2:1$.",
+      solution: "Step 1: Coordinates are $(x_1, y_1) = (1, -2)$ and $(x_2, y_2) = (4, 7)$. Ratio $m=2, n=1$.\n\nStep 2: External division formula: $x = \\frac{mx_2 - nx_1}{m-n}$ and $y = \\frac{my_2 - ny_1}{m-n}$.\n\nStep 3: Calculate $x = \\frac{2(4) - 1(1)}{2-1} = \\frac{8-1}{1} = 7$.\n\nStep 4: Calculate $y = \\frac{2(7) - 1(-2)}{2-1} = \\frac{14+2}{1} = 16$.\n\nThe coordinates are $(7, 16)$."
+    },
+    proTip: "If a question asks for the ratio in which a line or axis divides a segment, assume the ratio is $k:1$. Solve for $k$ using the coordinate that must be zero (e.g. $y=0$ for X-axis, $x=0$ for Y-axis). If $k > 0$, the division is internal; if $k < 0$, it is external."
+  },
+  {
+    id: 42,
+    subject: "mathematics",
+    title: "Perpendicular Distance and Parallel Lines",
+    youtubeQuery: "perpendicular+distance+from+point+to+line+slope+intercept+form",
+    desc: "Calculating the perpendicular distance from a point $(x_1, y_1)$ to a line $Ax+By+C=0$ and finding the distance between two parallel lines.",
+    formulas: [
+      "Perpendicular distance: $d = \\frac{|Ax_1 + By_1 + C|}{\\sqrt{A^2 + B^2}}$",
+      "Distance between parallel lines $Ax+By+C_1=0$ and $Ax+By+C_2=0$: $d = \\frac{|C_1 - C_2|}{\\sqrt{A^2 + B^2}}$",
+      "Angle between lines: $\\tan\\theta = \\left|\\frac{m_1 - m_2}{1 + m_1m_2}\\right|$"
+    ],
+    steps: [
+      "For a point to a line: rearrange the line equation into standard form $Ax + By + C = 0$.",
+      "Substitute the point $(x_1, y_1)$ into the expression $|Ax_1 + By_1 + C|$ in the numerator.",
+      "Divide by $\\sqrt{A^2 + B^2}$ to find the distance.",
+      "For parallel lines: ensure both line equations have identical coefficients for $x$ and $y$ (multiply or divide one equation if necessary) before using the $|C_1 - C_2|$ formula."
+    ],
+    example: {
+      text: "Find the distance between the parallel lines $3x - 4y + 7 = 0$ and $6x - 8y + 4 = 0$.",
+      solution: "Step 1: Make $x$ and $y$ coefficients identical. Divide the second equation by 2 $\\implies 3x - 4y + 2 = 0$.\n\nStep 2: Identify $A=3, B=-4, C_1=7, C_2=2$.\n\nStep 3: Distance formula: $d = \\frac{|C_1 - C_2|}{\\sqrt{A^2 + B^2}} = \\frac{|7 - 2|}{\\sqrt{3^2 + (-4)^2}} = \\frac{5}{\\sqrt{9+16}} = \\frac{5}{5} = 1$.\n\nThe distance is 1 unit."
+    },
+    proTip: "Parallel lines always have identical slopes ($m_1 = m_2$). Perpendicular lines have slopes satisfying $m_1 \\cdot m_2 = -1$. Use this relationship to instantly find the slope of a line perpendicular to a given line."
+  },
+  {
+    id: 43,
+    subject: "physics",
+    title: "First Law and Thermodynamic Work",
+    youtubeQuery: "first+law+of+thermodynamics+work+done+isothermal+adiabatic+isobaric",
+    desc: "Calculating heat ($\\Delta Q$), work ($W$), and internal energy change ($\\Delta U$) using the First Law of Thermodynamics for different processes.",
+    formulas: [
+      "First Law: $\\Delta Q = \\Delta U + W$",
+      "Change in Internal Energy: $\\Delta U = n C_v \\Delta T$ (process-independent, depending only on temperature change)",
+      "Isobaric Work ($P=\\text{const}$): $W = P(V_f - V_i) = nR\\Delta T$",
+      "Isochoric Work ($V=\\text{const}$): $W = 0 \\implies \\Delta Q = \\Delta U$",
+      "Isothermal Work ($T=\\text{const}$): $W = nRT \\ln(V_f/V_i) = nRT \\ln(P_i/P_f)$",
+      "Adiabatic Work ($\\Delta Q=0$): $W = -\\Delta U = \\frac{nR(T_i - T_f)}{\\gamma - 1} = \\frac{P_i V_i - P_f V_f}{\\gamma - 1}$"
+    ],
+    steps: [
+      "Identify the thermodynamic process type (isothermal, isobaric, isochoric, or adiabatic).",
+      "Determine which quantities ($\\Delta Q$, $W$, or temperature change) are given.",
+      "Calculate the work done $W$ using the process-specific formula.",
+      "Apply the First Law of Thermodynamics equation: $\\Delta Q = \\Delta U + W$.",
+      "Solve for the remaining unknown parameter."
+    ],
+    example: {
+      text: "An ideal gas absorbs $500\\text{ J}$ of heat and expands doing $200\\text{ J}$ of work. Find the change in its internal energy.",
+      solution: "Step 1: Given heat added $\\Delta Q = +500\\text{ J}$ and work done by the gas $W = +200\\text{ J}$.\n\nStep 2: Apply the First Law: $\\Delta Q = \\Delta U + W$.\n\nStep 3: Rearrange: $\\Delta U = \\Delta Q - W = 500\\text{ J} - 200\\text{ J} = 300\\text{ J}$.\n\nThe internal energy increases by $300\\text{ J}$."
+    },
+    proTip: "Keep strict track of signs! Heat absorbed is $+Q$, heat released is $-Q$. Work done by the gas (expansion) is $+W$, work done on the gas (compression) is $-W$."
+  },
+  {
+    id: 44,
+    subject: "chemistry",
+    title: "Boiling Point Elevation & Freezing Point Depression",
+    youtubeQuery: "elevation+in+boiling+point+depression+in+freezing+point+colligative+properties",
+    desc: "Calculating the boiling point elevation ($\\Delta T_b$) and freezing point depression ($\\Delta T_f$) of solutions including electrolyte dissociation using the van 't Hoff factor ($i$).",
+    formulas: [
+      "Boiling Point Elevation: $\\Delta T_b = i \\cdot K_b \\cdot m$",
+      "Freezing Point Depression: $\\Delta T_f = i \\cdot K_f \\cdot m$",
+      "Molality ($m$): $m = \\frac{\\text{moles of solute}}{\\text{mass of solvent in kg}}$",
+      "van 't Hoff factor ($i$): $i = 1 + (n-1)\\alpha$ (where $n$ is number of ions per formula unit, and $\\alpha$ is degree of dissociation)"
+    ],
+    steps: [
+      "Identify the solute. Determine if it is a non-electrolyte ($i=1$) or an electrolyte ($i > 1$, e.g. $NaCl \\to n=2$, $BaCl_2 \\to n=3$).",
+      "Compute the van 't Hoff factor $i$ using $i = 1 + (n-1)\\alpha$. For complete dissociation, $\\alpha = 1 \\implies i = n$.",
+      "Calculate the molality $m$ of the solution: $\\text{moles of solute}/\\text{kg of solvent}$.",
+      "Calculate $\\Delta T_b$ or $\\Delta T_f$ by multiplying $i \\cdot K \\cdot m$.",
+      "Obtain final values: new boiling point $= T_{pure} + \\Delta T_b$; new freezing point $= T_{pure} - \\Delta T_f$."
+    ],
+    example: {
+      text: "Calculate the freezing point of a $0.1\\text{ m}$ aqueous solution of $NaCl$ assuming complete dissociation ($K_f = 1.86\\text{ K}\\cdot\\text{kg/mol}$, pure water freezing point is $0^\\circ\\text{C}$).",
+      solution: "Step 1: $NaCl$ dissociates into $Na^+$ and $Cl^-$, so $n = 2$. For complete dissociation, $\\alpha = 1 \\implies i = 2$.\n\nStep 2: Molality $m = 0.1\\text{ mol/kg}$.\n\nStep 3: $\\Delta T_f = i \\cdot K_f \\cdot m = 2 \\times 1.86 \\times 0.1 = 0.372^\\circ\\text{C}$.\n\nStep 4: Freezing point of solution $= T_{pure} - \\Delta T_f = 0^\\circ\\text{C} - 0.372^\\circ\\text{C} = -0.372^\\circ\\text{C}$."
+    },
+    proTip: "High concentration of ions (high value of $i \\cdot m$) causes the lowest freezing point and highest boiling point. When comparing different solutions, always multiply the molality by the van 't Hoff factor $i$. The solution with the largest $i \\cdot m$ value has the lowest freezing point and highest boiling point."
+  },
+  {
+    id: 45,
+    subject: "electrical",
+    title: "Parallel RLC Circuit Resonance",
+    youtubeQuery: "parallel+rlc+resonance+bandwidth+quality+factor",
+    desc: "Determining resonant frequency, quality factor ($Q$), bandwidth ($BW$), and impedance characteristics of a parallel RLC resonant circuit.",
+    formulas: [
+      "Resonant Frequency: $f_r = \\frac{1}{2\\pi\\sqrt{LC}}$",
+      "Quality Factor (Parallel): $Q = R \\sqrt{\\frac{C}{L}} = \\frac{R}{X_L} = \\omega_r R C$ (note that this is the reciprocal of series RLC Quality Factor!)",
+      "Bandwidth ($BW$): $BW = \\frac{f_r}{Q} = \\frac{1}{2\\pi R C}$",
+      "Resonant Impedance: $Z_{max} = R$ (circuit behaves purely resistively, line current is minimum and impedance is maximum at resonance)"
+    ],
+    steps: [
+      "Identify the values of resistance $R$, inductance $L$, and capacitance $C$.",
+      "Compute the resonant frequency $f_r$ (or angular frequency $\\omega_r = 1/\\sqrt{LC}$).",
+      "Calculate the Quality Factor using $Q = R\\sqrt{C/L}$.",
+      "Calculate the Bandwidth: $BW = f_r / Q$.",
+      "Verify impedance behavior: at resonance, impedance is maximum ($Z = R$) and phase angle is zero."
+    ],
+    example: {
+      text: "A parallel RLC circuit has $R = 10\\text{ k}\\Omega$, $L = 1\\text{ mH}$, and $C = 10\\text{ nF}$. Find its Quality Factor.",
+      solution: "Step 1: Given $R = 10000\\ \\Omega$, $L = 10^{-3}\\text{ H}$, and $C = 10 \\times 10^{-9}\\text{ F} = 10^{-8}\\text{ F}$.\n\nStep 2: Quality Factor formula: $Q = R \\sqrt{\\frac{C}{L}}$.\n\nStep 3: Substitute values: $Q = 10000 \\times \\sqrt{\\frac{10^{-8}}{10^{-3}}} = 10000 \\times \\sqrt{10^{-5}} = 10000 \\times 0.003162 = 31.62$.\n\nThe Quality Factor is $31.62$."
+    },
+    proTip: "Parallel RLC resonance is a 'rejector circuit' (minimum line current at resonance), whereas series RLC resonance is an 'acceptor circuit' (maximum line current at resonance). Remember that parallel $Q$ is proportional to resistance $R$, while series $Q$ is inversely proportional to $R$."
   }
 ];
 

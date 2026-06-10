@@ -198,7 +198,7 @@ function updateStats() {
   
   const progressFill = document.getElementById('progress-bar-fill');
   if (progressFill) {
-    progressFill.style.width = `${(masteredIds.length / 40) * 100}%`;
+    progressFill.style.width = `${(masteredIds.length / 45) * 100}%`;
   }
   
   let mathCount = 0;
