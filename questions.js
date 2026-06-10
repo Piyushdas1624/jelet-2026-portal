@@ -277,7 +277,7 @@ const questions = [
     correct: [0],
     confidence: "High",
     rationale: "Trigonometric limit patterns are tested consistently (2023 Q14, 2025 Q24).",
-    solution: "$\\sin(\\pi\\cos^2 x) = \sin(\\pi(1-\\sin^2 x)) = \\sin(\\pi - \\pi\\sin^2 x) = \\sin(\\pi\\sin^2 x)$. The limit becomes $\\lim_{x\\to0} \\frac{\\sin(\\pi\\sin^2 x)}{\\pi\\sin^2 x} \\cdot \\frac{\\pi\\sin^2 x}{x^2} = 1 \\cdot \\pi \\cdot 1 = \\pi$."
+    solution: "$\\sin(\\pi\\cos^2 x) = \\sin(\\pi(1-\\sin^2 x)) = \\sin(\\pi - \\pi\\sin^2 x) = \\sin(\\pi\\sin^2 x)$. The limit becomes $\\lim_{x\\to0} \\frac{\\sin(\\pi\\sin^2 x)}{\\pi\\sin^2 x} \\cdot \\frac{\\pi\\sin^2 x}{x^2} = 1 \\cdot \\pi \\cdot 1 = \\pi$."
   },
   {
     id: 18,
@@ -347,7 +347,7 @@ const questions = [
     id: 22,
     subject: "mathematics",
     category: 1,
-    text: "If $u = \\ln\\left(\\frac{x^3 + y^3}{x + y}\right)$, then the partial differential sum $x \\frac{\partial u}{\partial x} + y \\frac{\partial u}{\partial y}$ is equal to:",
+    text: "If $u = \\ln\\left(\\frac{x^3 + y^3}{x + y}\\right)$, then the partial differential sum $x \\frac{\\partial u}{\\partial x} + y \\frac{\\partial u}{\\partial y}$ is equal to:",
     options: [
       "2",
       "u",
@@ -357,7 +357,7 @@ const questions = [
     correct: [0],
     confidence: "High",
     rationale: "Euler's theorem on homogeneous functions is tested consistently (2022 Q23, 2023 Q22, 2024 Q20, 2025 Q5).",
-    solution: "Let $z = e^u = \\frac{x^3+y^3}{x+y}$. Since $z$ is homogeneous of degree $n = 3 - 1 = 2$, we have $x \\frac{\partial z}{\partial x} + y \\frac{\partial z}{\partial y} = 2z \\implies x e^u \\frac{\partial u}{\partial x} + y e^u \\frac{\partial u}{\partial y} = 2e^u \\implies x \\frac{\partial u}{\partial x} + y \\frac{\partial u}{\partial y} = 2$."
+    solution: "Let $z = e^u = \\frac{x^3+y^3}{x+y}$. Since $z$ is homogeneous of degree $n = 3 - 1 = 2$, we have $x \\frac{\\partial z}{\\partial x} + y \\frac{\\partial z}{\\partial y} = 2z \\implies x e^u \\frac{\\partial u}{\\partial x} + y e^u \\frac{\\partial u}{\\partial y} = 2e^u \\implies x \\frac{\\partial u}{\\partial x} + y \\frac{\\partial u}{\\partial y} = 2$."
   },
   {
     id: 23,
@@ -562,7 +562,7 @@ const questions = [
       "$v = \\sqrt{rg \\left(\\frac{\\tan\\theta + \\mu_s}{1 - \\mu_s\\tan\\theta}\\right)}$",
       "$v = \\sqrt{rg \\left(\\frac{\\tan\\theta - \\mu_s}{1 + \\mu_s\\tan\\theta}\\right)}$",
       "$v = \\sqrt{rg \\tan\\theta}$",
-      "$v = \\sqrt{\\frac{rg}{\mu_s}}$"
+      "$v = \\sqrt{\\frac{rg}{\\mu_s}}$"
     ],
     correct: [0],
     confidence: "High",
@@ -953,7 +953,7 @@ const questions = [
     correct: [0],
     confidence: "High",
     rationale: "Hybridization of organic reaction intermediates (2025 Q84).",
-    solution: "Carbanion has 3 bond pairs and 1 lone pair, giving a steric number of 4 $\implies sp^3$."
+    solution: "Carbanion has 3 bond pairs and 1 lone pair, giving a steric number of 4 $\\implies sp^3$."
   },
   {
     id: 60,
@@ -1427,7 +1427,7 @@ const questions = [
     id: 89,
     subject: "mathematics",
     category: 2,
-    text: "The complementary function (C.F.) of the second-order differential equation $\\frac{d^2y}{dx^2} - 4\frac{dy}{dx} + 4y = e^{2x}$ contains terms of the form:",
+    text: "The complementary function (C.F.) of the second-order differential equation $\\frac{d^2y}{dx^2} - 4\\frac{dy}{dx} + 4y = e^{2x}$ contains terms of the form:",
     options: [
       "$e^{2x}$",
       "$xe^{2x}$",
@@ -1487,7 +1487,7 @@ const questions = [
     correct: [0, 1, 2],
     confidence: "Medium",
     rationale: "Dynamics of spring-mass systems and potential energy curves (2022 Q66, 2025 Q67).",
-    solution: "Since forces are conservative, total system mechanical energy is conserved. Equilibrium position means net force is 0 $\implies$ acceleration is 0, which is also the point of maximum velocity (where weight = spring force). Acceleration varies with displacement. (A, B, C correct)."
+    solution: "Since forces are conservative, total system mechanical energy is conserved. Equilibrium position means net force is 0 $\\implies$ acceleration is 0, which is also the point of maximum velocity (where weight = spring force). Acceleration varies with displacement. (A, B, C correct)."
   },
   {
     id: 93,
