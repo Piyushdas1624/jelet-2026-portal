@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JELET 2026 Predicted Paper & Exam Simulator</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- MathJax for Formula Rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- App Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="dark-theme">
+  
+  <div class="glass-bg-decor one"></div>
+  <div class="glass-bg-decor two"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>JELET 2026</span>
+        </div>
+        <p class="logo-sub">Exam Prediction Hub</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-tab="dashboard">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-tab="blueprint">
+          <i class="fa-solid fa-map"></i>
+          <span>Blueprint</span>
+        </button>
+        <button class="nav-item" data-tab="exam">
+          <i class="fa-solid fa-clock"></i>
+          <span>Exam Simulator</span>
+        </button>
+        <button class="nav-item" data-tab="solutions">
+          <i class="fa-solid fa-key"></i>
+          <span>Solutions Explorer</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="profile-card">
+          <div class="avatar"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="info">
+            <p class="name">Guest Candidate</p>
+            <p class="role">Diploma to Degree</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="main-header">
+        <div class="header-title">
+          <h1 id="page-title">Dashboard Overview</h1>
+          <p id="page-subtitle">Historical patterns and predicted exam structure</p>
+        </div>
+        <div class="header-actions">
+          <div class="exam-status-bar hide" id="exam-timer-wrapper">
+            <span class="timer-label"><i class="fa-regular fa-clock"></i> Time Left:</span>
+            <span class="timer-val" id="exam-timer">02:00:00</span>
+          </div>
+          <button class="btn btn-primary btn-submit-exam hide" id="btn-top-submit" onclick="submitExam()">
+            <i class="fa-solid fa-circle-check"></i> Submit Test
+          </button>
+        </div>
+      </header>
+
+      <div class="content-body">
+        
+        <!-- ==================== DASHBOARD TAB ==================== -->
+        <section id="tab-dashboard" class="tab-pane active">
+          <!-- Welcome Section -->
+          <div class="welcome-banner">
+            <div class="banner-text">
+              <h2>Predicting Success for JELET 2026</h2>
+              <p>Based on our psychometric analysis of previous years' papers (2022-2025), we have constructed a highly probable blueprint. Practice on the interactive exam simulator to gauge your preparedness.</p>
+              <button class="btn btn-light" onclick="switchTab('exam')">
+                <i class="fa-solid fa-play"></i> Start Mock Exam
+              </button>
+            </div>
+            <div class="banner-img">
+              <i class="fa-solid fa-award"></i>
+            </div>
+          </div>
+
+          <!-- Quick Statistics -->
+          <div class="stats-grid">
+            <div class="stat-card math">
+              <div class="icon-wrapper"><i class="fa-solid fa-calculator"></i></div>
+              <div class="stat-info">
+                <h3>Mathematics</h3>
+                <p class="stat-val">50 Marks</p>
+                <p class="stat-desc">40 Qs (30 Cat-I, 10 Cat-II)</p>
+              </div>
+              <div class="stat-progress"><div class="bar" style="width: 41.7%"></div></div>
+            </div>
+            <div class="stat-card physics">
+              <div class="icon-wrapper"><i class="fa-solid fa-atom"></i></div>
+              <div class="stat-info">
+                <h3>Physics</h3>
+                <p class="stat-val">35 Marks</p>
+                <p class="stat-desc">30 Qs (25 Cat-I, 5 Cat-II)</p>
+              </div>
+              <div class="stat-progress"><div class="bar" style="width: 29.2%"></div></div>
+            </div>
+            <div class="stat-card chemistry">
+              <div class="icon-wrapper"><i class="fa-solid fa-flask"></i></div>
+              <div class="stat-info">
+                <h3>Chemistry</h3>
+                <p class="stat-val">25 Marks</p>
+                <p class="stat-desc">20 Qs (15 Cat-I, 5 Cat-II)</p>
+              </div>
+              <div class="stat-progress"><div class="bar" style="width: 20.8%"></div></div>
+            </div>
+            <div class="stat-card eee">
+              <div class="icon-wrapper"><i class="fa-solid fa-bolt"></i></div>
+              <div class="stat-info">
+                <h3>Electrical / Electronics</h3>
+                <p class="stat-val">10 Marks</p>
+                <p class="stat-desc">10 Qs (10 Cat-I)</p>
+              </div>
+              <div class="stat-progress"><div class="bar" style="width: 8.3%"></div></div>
+            </div>
+          </div>
+
+          <!-- Blueprint Insights Grid -->
+          <div class="dashboard-details-grid">
+            <div class="details-card hidden-patterns">
+              <h3><i class="fa-solid fa-magnifying-glass-chart"></i> Core Historical Patterns</h3>
+              <div class="patterns-list">
+                <div class="pattern-item">
+                  <div class="num">01</div>
+                  <div class="text">
+                    <strong>Calculus & Matrices Dominance:</strong> Together they represent 75%+ of the Math section. Focus on rank of 3x3 matrices, limits of $1^\infty$ form, Euler's theorem, and first-order linear ODEs.
+                  </div>
+                </div>
+                <div class="pattern-item">
+                  <div class="num">02</div>
+                  <div class="text">
+                    <strong>Physics is Numerical & Graphical:</strong> 60%+ of questions are numerical. Pay close attention to motion/force curves and thermodynamic phase mixtures.
+                  </div>
+                </div>
+                <div class="pattern-item">
+                  <div class="num">03</div>
+                  <div class="text">
+                    <strong>Chemistry is Theory-Heavy:</strong> Up to 90% of questions are concept-based (acidic strength trends, Bohr radii ratios, Grignard and alkyne Tollens' tests). It is your primary time-saver.
+                  </div>
+                </div>
+                <div class="pattern-item">
+                  <div class="num">04</div>
+                  <div class="text">
+                    <strong>EEE is Direct and High-Yield:</strong> Features basic BJT equations ($I_E = I_B + I_C$), node voltage calculations, and digital gate Boolean simplifications.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="details-card exam-rules">
+              <h3><i class="fa-solid fa-circle-info"></i> Marking & Scoring Rules</h3>
+              <div class="rules-table-wrapper">
+                <table class="rules-table">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Marks</th>
+                      <th>Negative Mark</th>
+                      <th>Options Correct</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Category I</strong></td>
+                      <td>+1</td>
+                      <td>-0.25 (25%)</td>
+                      <td>Exactly One</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Category II</strong></td>
+                      <td>+2</td>
+                      <td>None</td>
+                      <td>One or More</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="partial-marks-box">
+                <p><strong>Category II Partial Marks Rule:</strong> If only correct choices are marked and no wrong choice is marked, partial marks are awarded as:</p>
+                <div class="formula">
+                  $$\text{Marks} = 2 \times \frac{\text{Correct Marked}}{\text{Total Correct}}$$
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== BLUEPRINT TAB ==================== -->
+        <section id="tab-blueprint" class="tab-pane">
+          <div class="blueprint-controls">
+            <div class="filter-group">
+              <button class="filter-btn active" data-subject="all">All Subjects</button>
+              <button class="filter-btn" data-subject="mathematics">Mathematics</button>
+              <button class="filter-btn" data-subject="physics">Physics</button>
+              <button class="filter-btn" data-subject="chemistry">Chemistry</button>
+              <button class="filter-btn" data-subject="electrical">Electrical & Electronics</button>
+            </div>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="blueprint-search" placeholder="Search topics, e.g. Matrices, Euler...">
+            </div>
+          </div>
+
+          <div class="blueprint-grid-header">
+            <div class="col-q">Q.No</div>
+            <div class="col-subj">Subject</div>
+            <div class="col-cat">Category</div>
+            <div class="col-topic">Predicted Sub-Topic</div>
+            <div class="col-conf">Confidence</div>
+            <div class="col-expand">Action</div>
+          </div>
+          <div class="blueprint-list" id="blueprint-list-container">
+            <!-- Loaded dynamically in app.js -->
+          </div>
+        </section>
+
+        <!-- ==================== EXAM TAB ==================== -->
+        <section id="tab-exam" class="tab-pane">
+          <!-- Start Exam View -->
+          <div class="exam-start-container" id="exam-start-view">
+            <div class="exam-card">
+              <h2>JELET 2026 Mock Exam Simulator</h2>
+              <p class="desc">Take a full-length, interactive exam simulating the predicted JELET 2026 paper. The exam enforces the official marking schemes and scoring logic.</p>
+              
+              <div class="exam-details-list">
+                <div class="detail-item">
+                  <i class="fa-solid fa-list-ol"></i>
+                  <span><strong>100 Questions</strong> (80 Category I, 20 Category II)</span>
+                </div>
+                <div class="detail-item">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <span><strong>120 Minutes</strong> (2 Hours) countdown timer</span>
+                </div>
+                <div class="detail-item">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <span>Negative marking on Category I (-0.25); partial marking on Category II</span>
+                </div>
+              </div>
+
+              <div class="warning-box">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <p><strong>Note:</strong> Once you start the test, the timer cannot be paused. Make sure you have a quiet place and 2 hours of uninterrupted time.</p>
+              </div>
+
+              <button class="btn btn-primary btn-large" onclick="startExam()">
+                <i class="fa-solid fa-rocket"></i> Launch Exam Simulator
+              </button>
+            </div>
+          </div>
+
+          <!-- Exam Active View -->
+          <div class="exam-active-container hide" id="exam-active-view">
+            <div class="exam-layout">
+              <!-- Left: Question Panel -->
+              <div class="question-column">
+                <div class="question-card">
+                  <div class="question-header">
+                    <span class="q-number" id="current-q-num">Question 1</span>
+                    <div class="q-badges">
+                      <span class="badge badge-subj" id="current-q-subj">Mathematics</span>
+                      <span class="badge badge-cat" id="current-q-cat">Category I (1 Mark)</span>
+                      <span class="badge badge-info" id="current-q-type"><i class="fa-solid fa-circle-check"></i> Single Correct</span>
+                    </div>
+                  </div>
+
+                  <!-- Question Text -->
+                  <div class="question-text" id="current-q-text">
+                    <!-- Latex rendered dynamically -->
+                  </div>
+
+                  <!-- Options Container -->
+                  <div class="options-list" id="current-q-options">
+                    <!-- Dynamic choices -->
+                  </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="question-controls">
+                  <div class="control-left">
+                    <button class="btn btn-secondary" id="btn-prev" onclick="prevQuestion()">
+                      <i class="fa-solid fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-warning" id="btn-review" onclick="markForReview()">
+                      <i class="fa-solid fa-bookmark"></i> Review Later
+                    </button>
+                  </div>
+                  <div class="control-right">
+                    <button class="btn btn-danger" id="btn-clear" onclick="clearAnswers()">
+                      <i class="fa-solid fa-eraser"></i> Clear Response
+                    </button>
+                    <button class="btn btn-secondary" id="btn-next" onclick="nextQuestion()">
+                      Next <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Question Palette & Grid Navigation -->
+              <div class="palette-column">
+                <div class="palette-card">
+                  <h3>Question Navigation</h3>
+                  <div class="palette-filters">
+                    <button class="p-filter active" onclick="filterPalette('all')">All</button>
+                    <button class="p-filter" onclick="filterPalette('math')">Math</button>
+                    <button class="p-filter" onclick="filterPalette('phys')">Phys</button>
+                    <button class="p-filter" onclick="filterPalette('chem')">Chem</button>
+                    <button class="p-filter" onclick="filterPalette('eee')">EEE</button>
+                  </div>
+
+                  <div class="q-grid-container" id="q-grid-palette">
+                    <!-- 100 buttons loaded dynamically -->
+                  </div>
+
+                  <!-- Legend -->
+                  <div class="palette-legend">
+                    <div class="legend-item"><span class="box unvisited"></span><span>Unvisited</span></div>
+                    <div class="legend-item"><span class="box unanswered"></span><span>Not Answered</span></div>
+                    <div class="legend-item"><span class="box answered"></span><span>Answered</span></div>
+                    <div class="legend-item"><span class="box review"></span><span>Review Later</span></div>
+                    <div class="legend-item"><span class="box answered-review"></span><span>Answered & Review</span></div>
+                  </div>
+
+                  <div class="submit-box">
+                    <button class="btn btn-primary btn-block btn-large" onclick="submitExam()">
+                      <i class="fa-solid fa-circle-check"></i> Submit Entire Test
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exam Result / Scorecard View -->
+          <div class="exam-result-container hide" id="exam-result-view">
+            <div class="result-header">
+              <h2><i class="fa-solid fa-square-poll-vertical"></i> Exam Performance Scorecard</h2>
+              <p>Your mock exam results based on official grading guidelines</p>
+            </div>
+
+            <div class="result-summary-grid">
+              <div class="result-score-card">
+                <p class="title">Total Score</p>
+                <h3 id="result-score">0.00 / 120</h3>
+                <span class="status-badge pass" id="result-status">PASS</span>
+              </div>
+              <div class="result-metric-card">
+                <div class="metric-row">
+                  <span>Questions Attempted:</span>
+                  <strong id="result-attempted">0 / 100</strong>
+                </div>
+                <div class="metric-row">
+                  <span>Correct Answers:</span>
+                  <strong id="result-correct" class="text-success">0</strong>
+                </div>
+                <div class="metric-row">
+                  <span>Incorrect Answers:</span>
+                  <strong id="result-incorrect" class="text-danger">0</strong>
+                </div>
+                <div class="metric-row">
+                  <span>Negative Marks:</span>
+                  <strong id="result-negative" class="text-danger">0.00</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subject breakdown -->
+            <div class="subject-breakdown-card">
+              <h3>Subject Wise Breakdown</h3>
+              <div class="breakdown-grid" id="result-breakdown-container">
+                <!-- Loaded dynamically -->
+              </div>
+            </div>
+
+            <div class="result-actions">
+              <button class="btn btn-primary" onclick="showExamSolutions()">
+                <i class="fa-solid fa-lightbulb"></i> Review Detailed Solutions
+              </button>
+              <button class="btn btn-secondary" onclick="restartExam()">
+                <i class="fa-solid fa-rotate-left"></i> Retake Mock Exam
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== SOLUTIONS TAB ==================== -->
+        <section id="tab-solutions" class="tab-pane">
+          <div class="solutions-header-panel">
+            <div class="solutions-filters">
+              <select id="sol-subject-filter" class="form-select">
+                <option value="all">All Subjects</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="electrical">Electrical & Electronics</option>
+              </select>
+              <select id="sol-category-filter" class="form-select">
+                <option value="all">All Categories</option>
+                <option value="1">Category I (1 Mark)</option>
+                <option value="2">Category II (2 Marks)</option>
+              </select>
+              <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="sol-search" placeholder="Search keywords...">
+              </div>
+            </div>
+          </div>
+
+          <div class="solutions-list" id="solutions-list-container">
+            <!-- Dynamically populated in app.js -->
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- App Data and Core Scripts -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

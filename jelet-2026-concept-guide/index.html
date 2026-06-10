@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JELET 2026: Core Concept Outlines & Solving Recipes</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- MathJax for Formula Rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="dark-theme">
+  
+  <div class="glass-bg-decor one"></div>
+  <div class="glass-bg-decor two"></div>
+
+  <div class="guide-container">
+    <!-- Header -->
+    <header class="guide-header">
+      <div class="header-logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>JELET 2026 Concept Guide</span>
+      </div>
+      <h1>High-Yield Question Types & Solving Recipes</h1>
+      <p class="subtitle">Master the underlying mathematical methods, physics curves, and circuit analysis algorithms. Even if the numbers or contexts change in 2026, the recipes will remain the same.</p>
+    </header>
+
+    <!-- Progress Dashboard -->
+    <div class="dashboard-panel">
+      <div class="stat-group">
+        <div class="stat-card">
+          <span class="stat-label">Mastery Progress</span>
+          <div class="stat-value-group">
+            <span class="stat-value" id="mastered-count">0</span>
+            <span class="stat-total">/ 40 Recipes</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%"></div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Estimated Score Coverage</span>
+          <div class="stat-value-group">
+            <span class="stat-value text-gold" id="score-coverage">0.0</span>
+            <span class="stat-total">/ 120 Marks</span>
+          </div>
+          <span class="stat-subtext">Targeting a 50+ score baseline</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Subject Breakdown</span>
+          <div class="subject-mini-grid">
+            <div class="subject-mini-item math">
+              <span class="subj-dot"></span> Math: <span id="math-mastered">0</span>/14
+            </div>
+            <div class="subject-mini-item physics">
+              <span class="subj-dot"></span> Phys: <span id="phys-mastered">0</span>/10
+            </div>
+            <div class="subject-mini-item chemistry">
+              <span class="subj-dot"></span> Chem: <span id="chem-mastered">0</span>/9
+            </div>
+            <div class="subject-mini-item electrical">
+              <span class="subj-dot"></span> EEE: <span id="eee-mastered">0</span>/7
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel">
+      <div class="subject-filters">
+        <button class="filter-btn active" data-subject="all">All Subjects</button>
+        <button class="filter-btn" data-subject="mathematics">Mathematics</button>
+        <button class="filter-btn" data-subject="physics">Physics</button>
+        <button class="filter-btn" data-subject="chemistry">Chemistry</button>
+        <button class="filter-btn" data-subject="electrical">Electrical & Electronics</button>
+      </div>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="concept-search" placeholder="Search concept, e.g. Nodal, Euler, Bohr...">
+      </div>
+    </div>
+
+    <!-- Concepts Grid -->
+    <main class="concepts-grid" id="concepts-container">
+      <!-- Injected Dynamically by app.js -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="guide-footer">
+      <p>© 2026 JELET Exam Prediction Hub. Designed for Diploma-to-Degree Transition candidates.</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="concepts.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
