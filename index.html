@@ -789,6 +789,13 @@
 
           <!-- Exam Active View -->
           <div class="exam-active-container hide" id="exam-active-view">
+            <!-- Mobile Action Bar to Toggle Question Map -->
+            <div class="mobile-exam-action-bar">
+              <button class="btn btn-secondary btn-mobile-palette" onclick="toggleMobilePalette(true)">
+                <i class="fa-solid fa-table-cells"></i> Question Map (<span id="mobile-attempt-count">0/100</span>)
+              </button>
+            </div>
+
             <div class="exam-layout">
               <!-- Left: Question Panel -->
               <div class="question-column">
@@ -835,9 +842,14 @@
               </div>
 
               <!-- Right: Question Palette & Grid Navigation -->
-              <div class="palette-column">
+              <div class="palette-column" id="palette-sidebar-col">
                 <div class="palette-card">
-                  <h3>Question Navigation</h3>
+                  <div class="palette-header-mobile">
+                    <h3>Question Navigation</h3>
+                    <button class="btn-close-palette" onclick="toggleMobilePalette(false)">
+                      <i class="fa-solid fa-xmark"></i>
+                    </button>
+                  </div>
                   <div class="palette-filters">
                     <button class="p-filter active" onclick="filterPalette('all')">All</button>
                     <button class="p-filter" onclick="filterPalette('math')">Math</button>
@@ -952,6 +964,26 @@
       </div>
     </main>
   </div>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <button class="mobile-nav-item active" data-tab="dashboard">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Dashboard</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="blueprint">
+      <i class="fa-solid fa-map"></i>
+      <span>Blueprint</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="exam">
+      <i class="fa-solid fa-clock"></i>
+      <span>Exam</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="solutions">
+      <i class="fa-solid fa-key"></i>
+      <span>Solutions</span>
+    </button>
+  </nav>
 
   <!-- App Data and Core Scripts -->
   <script src="questions.js"></script>

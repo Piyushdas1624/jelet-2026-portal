@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Navigation & Tab Controller ---
 function initNavigation() {
-  document.querySelectorAll('.nav-item').forEach(button => {
+  document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(button => {
     button.addEventListener('click', () => {
       const targetTab = button.getAttribute('data-tab');
       
@@ -56,8 +56,8 @@ function initNavigation() {
 function switchTab(tabId) {
   activeTab = tabId;
   
-  // Update nav item active classes
-  document.querySelectorAll('.nav-item').forEach(btn => {
+  // Update nav item active classes for sidebar and mobile bottom nav
+  document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(btn => {
     if (btn.getAttribute('data-tab') === tabId) {
       btn.classList.add('active');
     } else {
@@ -329,6 +329,7 @@ function buildPaletteGrid() {
     btn.addEventListener('click', () => {
       saveCurrentQuestionState();
       loadQuestion(idx);
+      toggleMobilePalette(false); // Auto-close drawer on mobile selection
     });
     
     container.appendChild(btn);
@@ -476,6 +477,25 @@ function updatePaletteStyles() {
       btn.classList.add('active');
     }
   });
+
+  // Update mobile attempt count
+  const answeredCount = Object.keys(userAnswers).filter(qId => userAnswers[qId] && userAnswers[qId].length > 0).length;
+  const mobileAttemptEl = document.getElementById('mobile-attempt-count');
+  if (mobileAttemptEl) {
+    mobileAttemptEl.innerText = `${answeredCount}/100`;
+  }
+}
+
+// Toggle slide-up question map drawer on mobile
+function toggleMobilePalette(show) {
+  const col = document.getElementById('palette-sidebar-col');
+  if (col) {
+    if (show) {
+      col.classList.add('open');
+    } else {
+      col.classList.remove('open');
+    }
+  }
 }
 
 function prevQuestion() {
