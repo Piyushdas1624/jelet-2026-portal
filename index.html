@@ -752,11 +752,11 @@
               <div class="exam-details-list">
                 <div class="detail-item">
                   <i class="fa-solid fa-list-ol"></i>
-                  <span><strong>100 Questions</strong> (80 Category I, 20 Category II)</span>
+                  <span id="start-exam-questions-detail"><strong>100 Questions</strong> (80 Category I, 20 Category II)</span>
                 </div>
                 <div class="detail-item">
                   <i class="fa-solid fa-stopwatch"></i>
-                  <span><strong>120 Minutes</strong> (2 Hours) countdown timer</span>
+                  <span id="start-exam-time-detail"><strong>120 Minutes</strong> (2 Hours) countdown timer</span>
                 </div>
                 <div class="detail-item">
                   <i class="fa-solid fa-scale-balanced"></i>
@@ -764,12 +764,33 @@
                 </div>
               </div>
 
-              <div class="warning-box">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <p><strong>Note:</strong> Once you start the test, the timer cannot be paused. Make sure you have a quiet place and 2 hours of uninterrupted time.</p>
+              <!-- Subject and Chapter Dropdowns -->
+              <div class="exam-selector-group" style="margin: 24px 0; display: flex; gap: 16px; flex-wrap: wrap; text-align: left;">
+                <div class="selector-item" style="display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 200px;">
+                  <label for="exam-subject-select" style="font-weight: 500; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Subject Focus</label>
+                  <select id="exam-subject-select" class="form-select" style="width: 100%;">
+                    <option value="all">Full Exam (All 100 Questions)</option>
+                    <option value="mathematics">Engineering Mathematics (40 Questions)</option>
+                    <option value="physics">Physics (30 Questions)</option>
+                    <option value="chemistry">Chemistry (20 Questions)</option>
+                    <option value="electrical">Fundamentals of Electrical & Electronics Engineering (10 Questions)</option>
+                  </select>
+                </div>
+                
+                <div class="selector-item hide" id="exam-chapter-select-wrapper" style="display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 200px;">
+                  <label for="exam-chapter-select" style="font-weight: 500; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Chapter Focus</label>
+                  <select id="exam-chapter-select" class="form-select" style="width: 100%;">
+                    <option value="all">All Chapters</option>
+                  </select>
+                </div>
               </div>
 
-              <button class="btn btn-primary btn-large" onclick="startExam()">
+              <div class="warning-box">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <p id="start-exam-warning-text"><strong>Note:</strong> Once you start the test, the timer cannot be paused. Make sure you have a quiet place and 2 hours of uninterrupted time.</p>
+              </div>
+
+              <button class="btn btn-primary btn-large" id="btn-launch-exam" onclick="startExam()">
                 <i class="fa-solid fa-rocket"></i> Launch Exam Simulator
               </button>
             </div>
@@ -873,7 +894,7 @@
           <div class="exam-result-container hide" id="exam-result-view">
             <div class="result-header">
               <h2><i class="fa-solid fa-square-poll-vertical"></i> Exam Performance Scorecard</h2>
-              <p>Your mock exam results based on official grading guidelines</p>
+              <p id="result-exam-title">Your mock exam results based on official grading guidelines</p>
             </div>
 
             <div class="result-summary-grid">

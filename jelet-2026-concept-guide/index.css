@@ -756,3 +756,29 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
   }
 }
+
+.form-select {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a1a1aa' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 36px;
+  appearance: none;
+}
+.form-select option {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+}
+.hide {
+  display: none !important;
+}
+
