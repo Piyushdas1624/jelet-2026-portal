@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JELET 2026: High-Yield Priority Practice Test</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- MathJax for Formula Rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-main: #000000;
+      --bg-card: #09090b;
+      --bg-sidebar: #09090b;
+      --border-color: #1f1f1f;
+      --text-main: #fafafa;
+      --text-muted: #a1a1aa;
+      --primary: #ffffff;
+      --primary-hover: #e4e4e7;
+      --accent: #27272a;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+      --font-body: 'Inter', sans-serif;
+      --font-title: 'Outfit', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .logo-area i {
+      color: var(--text-main);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .timer-badge {
+      background-color: var(--accent);
+      border: 1px solid var(--border-color);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: var(--bg-main);
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--accent);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: #3f3f46;
+    }
+
+    .main-container {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    /* Start Exam Card */
+    .start-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      max-width: 600px;
+      margin: 40px auto;
+      width: 100%;
+    }
+
+    .start-card h1 {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .start-card p.desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+    }
+
+    .detail-item i {
+      font-size: 16px;
+      width: 20px;
+      color: var(--text-muted);
+    }
+
+    .warning-box {
+      background-color: rgba(245, 158, 11, 0.05);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      text-align: left;
+      margin-bottom: 30px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .warning-box i {
+      color: var(--warning);
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    /* Active Test View Layout */
+    .test-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+    }
+
+    .question-panel {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      min-height: 450px;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .q-number {
+      font-size: 20px;
+      font-weight: 700;
+      font-family: var(--font-title);
+    }
+
+    .badge-list {
+      display: flex;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-math { background-color: #1e293b; color: #38bdf8; border: 1px solid #0284c7; }
+    .badge-phys { background-color: #1e293b; color: #fbbf24; border: 1px solid #d97706; }
+    .badge-chem { background-color: #1e293b; color: #34d399; border: 1px solid #059669; }
+    .badge-eee { background-color: #1e293b; color: #a78bfa; border: 1px solid #7c3aed; }
+    .badge-cat { background-color: #27272a; color: var(--text-main); border: 1px solid var(--border-color); }
+
+    .q-text {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: auto;
+    }
+
+    .option-card {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .option-card:hover {
+      border-color: #3f3f46;
+    }
+
+    .option-card.selected {
+      border-color: var(--text-main);
+      background-color: var(--accent);
+    }
+
+    .option-marker {
+      background-color: var(--accent);
+      border: 1px solid var(--border-color);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .option-card.selected .option-marker {
+      background-color: var(--text-main);
+      color: var(--bg-main);
+    }
+
+    .option-text {
+      font-size: 15px;
+      flex: 1;
+    }
+
+    .nav-actions {
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Sidebar Palette */
+    .sidebar-panel {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: fit-content;
+    }
+
+    .sidebar-panel h3 {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .palette-btn {
+      aspect-ratio: 1;
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .palette-btn:hover {
+      border-color: #3f3f46;
+    }
+
+    .palette-btn.active {
+      border-color: var(--text-main);
+      box-shadow: 0 0 0 1px var(--text-main);
+    }
+
+    .palette-btn.answered {
+      background-color: #18181b;
+      color: var(--text-main);
+      border-color: #27272a;
+    }
+
+    .palette-btn.review {
+      background-color: #78350f;
+      color: #fbbf24;
+      border-color: #b45309;
+    }
+
+    .palette-btn.answered-review {
+      background-color: #581c87;
+      color: #c084fc;
+      border-color: #6b21a8;
+    }
+
+    .legend-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 12px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Scorecard Results */
+    .scorecard-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 750px;
+      margin: 30px auto;
+      width: 100%;
+    }
+
+    .result-head {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .result-head h1 {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .result-head p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .stat-box {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .stat-box .num {
+      font-size: 24px;
+      font-weight: 700;
+      font-family: var(--font-title);
+      margin-bottom: 4px;
+    }
+
+    .stat-box .lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sub-breakdown {
+      margin-bottom: 30px;
+    }
+
+    .sub-breakdown h3 {
+      font-family: var(--font-title);
+      margin-bottom: 16px;
+      font-size: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+      font-size: 14px;
+    }
+
+    .solutions-btn-container {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* Solved Solution Explanations */
+    .solution-explanation-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sol-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .sol-card .num-header {
+      font-weight: 700;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      font-family: var(--font-title);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sol-card .sol-box {
+      background-color: #0c0a09;
+      border: 1px solid #292524;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .sol-card .sol-box h4 {
+      margin-bottom: 6px;
+      color: #f59e0b;
+      font-family: var(--font-title);
+    }
+
+    .status-text {
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    .status-correct { background-color: rgba(16, 185, 129, 0.1); color: var(--success); }
+    .status-incorrect { background-color: rgba(239, 68, 68, 0.1); color: var(--danger); }
+
+    /* Footer styling */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .test-layout {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo-area">
+      <i class="fa-solid fa-fire-flame-curved"></i>
+      <span>JELET 2026 High-Yield Mock Test</span>
+    </div>
+    <div class="header-right">
+      <div class="timer-badge hide" id="exam-timer-container">
+        <i class="fa-solid fa-stopwatch"></i>
+        <span id="exam-timer">00:00:00</span>
+      </div>
+      <button class="btn btn-secondary hide" id="btn-submit" onclick="submitExam()">
+        <i class="fa-solid fa-paper-plane"></i> Submit Test
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <div class="main-container">
+
+    <!-- 1. Start Screen -->
+    <div class="start-card" id="start-view">
+      <h1>Priority Practice Exam</h1>
+      <p class="desc">Take this custom 50-question mock test to review the exact formulas and concepts you learned today. Focus on speed and accuracy!</p>
+      
+      <div class="details-list">
+        <div class="detail-item">
+          <i class="fa-solid fa-list-check"></i>
+          <span><strong>50 Questions</strong> (covering your exact list of topics)</span>
+        </div>
+        <div class="detail-item">
+          <i class="fa-solid fa-clock"></i>
+          <span><strong>60 Minutes</strong> (Dynamic pacing: 1.2 minutes per question)</span>
+        </div>
+        <div class="detail-item">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>Official Marking rules: Category I (+1, -0.25); Category II (+2, no negative)</span>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p><strong>Pacing Tip:</strong> Finish Chemistry and FEEE questions quickly first, then solve Physics, and do Mathematics calculations last.</p>
+      </div>
+
+      <button class="btn btn-large" onclick="startExam()">
+        <i class="fa-solid fa-rocket"></i> Launch Practice Exam
+      </button>
+    </div>
+
+    <!-- 2. Active Test Layout -->
+    <div class="test-layout hide" id="active-view">
+      
+      <!-- Left: Question Panel -->
+      <div class="question-panel">
+        <div class="question-header">
+          <div class="q-number" id="q-number-title">Question 1</div>
+          <div class="badge-list">
+            <span class="badge" id="q-subject-badge">Mathematics</span>
+            <span class="badge badge-cat" id="q-cat-badge">Category I (1 Mark)</span>
+          </div>
+        </div>
+
+        <!-- Question Text -->
+        <div class="q-text" id="q-text-content">Loading question...</div>
+
+        <!-- Options List -->
+        <div class="options-grid" id="q-options-container">
+          <!-- Injected dynamically -->
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-actions">
+          <button class="btn btn-secondary" onclick="prevQuestion()">
+            <i class="fa-solid fa-chevron-left"></i> Previous
+          </button>
+          <button class="btn btn-secondary" id="btn-review" onclick="toggleReview()">
+            <i class="fa-solid fa-bookmark"></i> Mark for Review
+          </button>
+          <button class="btn" onclick="nextQuestion()">
+            Next <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Palette Panel -->
+      <div class="sidebar-panel">
+        <h3>Question Navigator</h3>
+        <div class="palette-grid" id="palette-grid-container">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div class="legend-list">
+          <div class="legend-item">
+            <span class="legend-dot" style="background-color: var(--bg-main);"></span>
+            <span>Unvisited</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background-color: #18181b;"></span>
+            <span>Answered</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background-color: #78350f;"></span>
+            <span>Marked for Review</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background-color: #581c87;"></span>
+            <span>Answered & Review</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. Scorecard / Results view -->
+    <div class="scorecard-card hide" id="result-view">
+      <div class="result-head">
+        <h1>Practice Performance Scorecard</h1>
+        <p>Analyze your results below to identify remaining gaps before tomorrow's exam</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="num" id="res-score">0.00 / 50</div>
+          <div class="lbl">Total Score</div>
+        </div>
+        <div class="stat-box">
+          <div class="num" id="res-accuracy">0%</div>
+          <div class="lbl">Accuracy</div>
+        </div>
+        <div class="stat-box">
+          <div class="num" id="res-attempted">0 / 50</div>
+          <div class="lbl">Attempted</div>
+        </div>
+      </div>
+
+      <div class="sub-breakdown">
+        <h3>Subject Wise Breakdown</h3>
+        <div id="subject-breakdown-container">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <div class="solutions-btn-container">
+        <button class="btn" onclick="revealDetailedSolutions()">
+          <i class="fa-solid fa-lightbulb"></i> Review Detailed Solutions
+        </button>
+        <button class="btn btn-secondary" onclick="window.location.reload()">
+          <i class="fa-solid fa-rotate-left"></i> Retake Practice Test
+        </button>
+      </div>
+
+      <!-- Solutions List -->
+      <div class="solution-explanation-list hide" id="solutions-explanations">
+        <h3>Detailed Explanations</h3>
+        <div id="solutions-list-container">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 JELET Exam Priority Hub. Designed for rapid final-day preparation.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
